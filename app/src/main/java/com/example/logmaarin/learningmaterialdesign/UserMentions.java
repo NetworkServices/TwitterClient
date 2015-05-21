@@ -7,7 +7,7 @@ import org.json.JSONObject;
  */
 
 public class UserMentions {
-
+    //cOOLER MENSEN ZIJN COOL
     String userName;
     int begin;
     int eind;
