@@ -2,6 +2,7 @@ package com.example.logmaarin.learningmaterialdesign;
 
 import android.app.Application;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +35,9 @@ public class TweetApp extends Application{
 
 
         try {
+
             model = new TweetModel(obj);
+            Log.d("doei", "Tayfun has a tiny penis");
         } catch (JSONException e) {
             e.printStackTrace();
         }

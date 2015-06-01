@@ -60,20 +60,29 @@ public class cardViewAdapter extends RecyclerView.Adapter<cardViewAdapter.ViewHo
 
 
 
+
+
         TextView t = (TextView) holder.tweet.findViewById(R.id.tweet);
         TextView u = (TextView) holder.tweet.findViewById(R.id.username);
         TextView n = (TextView) holder.tweet.findViewById(R.id.naam);
         ImageView img = (ImageView) holder.tweet.findViewById(R.id.profilePicture);
-
+        ImageView media = (ImageView) holder.tweet.findViewById(R.id.imageView);
 
 
         try {
             Bitmap bmp =  new MyAsyncTask().execute(currentItem.getPf()).get();
+            if (entity.getMedias().size()>0){
+                Bitmap image = new MyAsyncTask().execute(currentItem.entity.getMedias().get(0).getMediaURL()).get();
+                media.setImageBitmap(image);
+            }
+
             if (bmp == null){
                 img.setImageResource(R.drawable.ic_launcher);
             } else {
                 img.setImageBitmap(bmp);
             }
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
