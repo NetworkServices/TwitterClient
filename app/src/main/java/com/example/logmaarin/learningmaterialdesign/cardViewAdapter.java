@@ -1,5 +1,6 @@
 package com.example.logmaarin.learningmaterialdesign;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -9,9 +10,11 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by LogMaarIn on 16-5-2015.
@@ -44,6 +47,7 @@ public class cardViewAdapter extends RecyclerView.Adapter<cardViewAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
         Tweet currentItem = tweets.get(position);
         SpannableStringBuilder sb = new SpannableStringBuilder(currentItem.getTweet());
         ForegroundColorSpan color = new ForegroundColorSpan(Color.rgb(0, 0, 180));
@@ -54,9 +58,27 @@ public class cardViewAdapter extends RecyclerView.Adapter<cardViewAdapter.ViewHo
             sb.setSpan(color, h.getBegin(), h.getEind(), sb.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
 
+
+
         TextView t = (TextView) holder.tweet.findViewById(R.id.tweet);
         TextView u = (TextView) holder.tweet.findViewById(R.id.username);
         TextView n = (TextView) holder.tweet.findViewById(R.id.naam);
+        ImageView img = (ImageView) holder.tweet.findViewById(R.id.profilePicture);
+
+
+
+        try {
+            Bitmap bmp =  new MyAsyncTask().execute(currentItem.getPf()).get();
+            if (bmp == null){
+                img.setImageResource(R.drawable.ic_launcher);
+            } else {
+                img.setImageBitmap(bmp);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
         t.setText(sb);

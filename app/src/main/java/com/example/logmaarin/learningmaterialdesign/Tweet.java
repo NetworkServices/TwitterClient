@@ -5,7 +5,7 @@ package com.example.logmaarin.learningmaterialdesign;
  */
 public class Tweet {
 
-    int pf;
+    String pf;
     User user;
     String tweet;
     Entity entity;
@@ -18,14 +18,15 @@ public class Tweet {
         return entity;
     }
 
-    public Tweet(String a, User user, Entity entity){
+    public Tweet(String a, String b, User user, Entity entity){
         this.user = user;
         this.entity =  entity;
 
         this.tweet=a;
+        this.pf = b;
     }
 
-    public int getPf() {
+    public String getPf() {
         return pf;
     }
 

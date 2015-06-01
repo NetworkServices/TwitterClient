@@ -18,7 +18,7 @@ import android.widget.ListView;
 
 
 public class MainActivity extends ActionBarActivity {
-/
+
 // / gelukt man.
 
 
