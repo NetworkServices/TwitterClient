@@ -18,12 +18,12 @@ public class Tweet {
         return entity;
     }
 
-    public Tweet(String a, String b, User user, Entity entity){
+    public Tweet(String a, User user, Entity entity){
         this.user = user;
         this.entity =  entity;
 
         this.tweet=a;
-        this.pf = b;
+
     }
 
     public String getPf() {
