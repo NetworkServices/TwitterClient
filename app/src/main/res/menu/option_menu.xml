@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:hoi="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/backToHome"
+        android:title=""
+        android:icon="@drawable/ic_launcher"
+        hoi:showAsAction="always"/>
+    <item
+        android:id="@+id/search"
+        android:title="@string/search_title"
+        android:icon="@drawable/icon_search"
+        hoi:showAsAction="always"
+        hoi:actionViewClass="android.widget.SearchView"
+         />
+</menu>

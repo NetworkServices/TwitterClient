@@ -34,13 +34,11 @@ public class TweetApp extends Application{
         }
 
 
-        try {
+
 
             model = new TweetModel(obj);
             Log.d("doei", "Tayfun has a tiny penis");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
 
 
         super.onCreate();
